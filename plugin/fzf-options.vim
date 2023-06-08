@@ -12,6 +12,7 @@ export const options = {
   'options': [
     '--no-multi',
     '--preview-window=sharp:',
-    '--preview=bat --color=always --style=numbers {1}'
+    '--preview=bat --color=always --style=numbers {1}',
+    '--ansi'
   ]
 }
