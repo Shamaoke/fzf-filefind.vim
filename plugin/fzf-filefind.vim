@@ -6,7 +6,7 @@ vim9script
 import './fzf-options.vim' as Fzf
 
 def FzfFilefindSource(): list<string>
-  return split(system('fd --type file .'), "\n")
+  return split(system('fd --type file --color always .'), "\n")
 enddef
 
 def FzfFilefindSink(word: string): void
