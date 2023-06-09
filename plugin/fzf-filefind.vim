@@ -21,7 +21,6 @@ export def FzfFilefind(): void
 
   var fzf_spec = extend(fzf_spellsuggest_options, Fzf.options)
 
-
   fzf#run(fzf_spec)
 enddef
 
