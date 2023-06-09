@@ -9,14 +9,24 @@ def FzfFilefindSource(): list<string>
   return split(system('fd --type file --color always .'), "\n")
 enddef
 
-def FzfFilefindSink(word: string): void
-  execute $"edit {word}"
+def FzfFilefindSink(entry: list<string>): void
+  var [key, value] = entry
+
+  if key == 'enter'
+    execute $"edit {value}"
+  elseif key == 'ctrl-t'
+    execute $"tabedit {value}"
+  elseif key == 'ctrl-s'
+    execute $"split {value}"
+  elseif key == 'ctrl-v'
+    execute $"vsplit {value}"
+  endif
 enddef
 
 export def FzfFilefind(): void
   var fzf_spellsuggest_options = {
     'source': FzfFilefindSource(),
-    'sink': FzfFilefindSink
+    'sink*': FzfFilefindSink
   }
 
   var fzf_spec = extendnew(fzf_spellsuggest_options, Fzf.options)

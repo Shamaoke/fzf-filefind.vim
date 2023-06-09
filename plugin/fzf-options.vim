@@ -13,6 +13,7 @@ export const options = {
     '--no-multi',
     '--preview-window=sharp:',
     '--preview=bat --color=always --style=numbers {1}',
-    '--ansi'
+    '--ansi',
+    '--expect=enter,ctrl-t,ctrl-s,ctrl-v'
   ]
 }
