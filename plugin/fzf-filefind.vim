@@ -19,7 +19,7 @@ export def FzfFilefind(): void
     'sink': FzfFilefindSink
   }
 
-  var fzf_spec = extend(fzf_spellsuggest_options, Fzf.options)
+  var fzf_spec = extendnew(fzf_spellsuggest_options, Fzf.options)
 
   fzf#run(fzf_spec)
 enddef
