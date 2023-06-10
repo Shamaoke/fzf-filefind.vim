@@ -10,16 +10,18 @@ def FzfFilefindSource(): list<string>
 enddef
 
 def FzfFilefindSink(entry: list<string>): void
-  var [key, value] = entry
+  if len(entry) > 1
+    var [key, value] = entry
 
-  if key == 'enter'
-    execute $"edit {value}"
-  elseif key == 'ctrl-t'
-    execute $"tabedit {value}"
-  elseif key == 'ctrl-s'
-    execute $"split {value}"
-  elseif key == 'ctrl-v'
-    execute $"vsplit {value}"
+    if key == 'enter'
+      execute $"edit {value}"
+    elseif key == 'ctrl-t'
+      execute $"tabedit {value}"
+    elseif key == 'ctrl-s'
+      execute $"split {value}"
+    elseif key == 'ctrl-v'
+      execute $"vsplit {value}"
+    endif
   endif
 enddef
 
