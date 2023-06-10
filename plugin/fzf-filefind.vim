@@ -24,12 +24,12 @@ def FzfFilefindSink(entry: list<string>): void
 enddef
 
 export def FzfFilefind(): void
-  var fzf_spellsuggest_options = {
+  var fzf_filefind_options = {
     'source': FzfFilefindSource(),
     'sink*': FzfFilefindSink
   }
 
-  var fzf_spec = extendnew(fzf_spellsuggest_options, Fzf.options)
+  var fzf_spec = extendnew(fzf_filefind_options, Fzf.options)
 
   fzf#run(fzf_spec)
 enddef
